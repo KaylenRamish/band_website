@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music</title>
+</head>
+<body>
+    <h1>Music</h1>
+    <h2>All Songs</h2>
+    {% if songs %}
+    <ul>
+        {% for song in songs %}
+        <li>{{ song.title }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>‘Jealousy’
+        ‘Fever’
+        ‘No Good at Goodbyes’
+        ‘Where Is the Love?’
+        ‘Ghetto Gospel’
+    
+    </p>
+    {% endif %}
+
+    <h2>Vote for Your Favorite Song</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="song 1">Ghetto Gospel</label>
+        <input type="radio" name="vote" value="song 1" id="song 1"><br>
+        <label for="song 2">No Good at Goodbyes</label>
+        <input type="radio" name="vote" value="song 2" id="song 2"><br>
+       
+    </form>
+    </ul>
+    <script>
+        function showThanksMessage() {
+            var voteButton = document.getElementById('vote-button');
+            var thanksMessage = document.getElementById('thanks-message');
+
+            // Hide the vote button and show the thanks message
+            voteButton.style.display = 'none';
+            thanksMessage.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <button id="vote-button" onclick="showThanksMessage()">Vote</button>
+    <p id="thanks-message" style="display: none;">Thanks for Voting!</p>
+</body>
+<a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>

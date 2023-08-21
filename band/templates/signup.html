@@ -1,0 +1,30 @@
+
+<!-- signup.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <form method="post">
+        {% csrf_token %}
+        <!-- Add form fields for user registration, e.g., username, password, email, etc. -->
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username">
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password">
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email">
+
+        <!-- Add more form fields if needed -->
+
+        <button type="submit">Sign Up</button>
+    </form>
+
+
+    <a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>
